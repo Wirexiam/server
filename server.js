@@ -5,8 +5,12 @@ const { google } = require("googleapis");
 const path    = require("path");
 require("dotenv").config();
 
+const cors = require("cors");
+
+
 const upload = multer({ dest: "uploads/" });
 const app = express();
+app.use(cors());
 
 // === Загрузка client_secret.json (или через переменные окружения) ===
 let clientSecret, clientId, redirectUri;
